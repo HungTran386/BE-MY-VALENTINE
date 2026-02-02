@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Làm Valentine của anh nhé?</title>
+    <style>
+        /* CSS - Trang trí giao diện */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec; /* Màu hồng nhạt */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Ẩn thanh cuộn */
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .gif-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            position: relative; /* Để nút No có thể di chuyển */
+            height: 60px;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 10px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #yesBtn {
+            background-color: #e91e63; /* Màu hồng đậm */
+            color: white;
+            font-weight: bold;
+        }
+
+        #yesBtn:hover {
+            background-color: #c2185b;
+            transform: scale(1.1);
+        }
+
+        #noBtn {
+            background-color: #e0e0e0;
+            color: #333;
+            position: absolute; /* Quan trọng để di chuyển nút */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="gif-container">
+            <img id="mainImage" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2QzM3J2eXJ2eXJ2eXJ2eXJ2eXJ2eXJ2eXJ2eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Cat">
+        </div>
+        
+        <h1 id="question">Nirali, làm Valentine của anh nhé?</h1>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes ❤️</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <script>
+        /* JavaScript - Xử lý hành động */
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        const mainImage = document.getElementById('mainImage');
+        
+        // Khi bấm vào nút Yes
+        yesBtn.addEventListener('click', () => {
+            question.innerHTML = "YAY! Anh yêu em! 😘"; // Đổi câu hỏi thành câu chúc mừng
+            // Đổi ảnh thành ảnh ăn mừng (Thay link ảnh của bạn vào đây)
+            mainImage.src = "https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif"; 
+            
+            // Ẩn 2 nút đi
+            yesBtn.style.display = "none";
+            noBtn.style.display = "none";
+        });
+
+        // Khi đưa chuột vào nút No (PC) hoặc chạm vào (Mobile)
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', moveButton);
+
+        function moveButton() {
+            // Lấy kích thước cửa sổ
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Tính toán vị trí ngẫu nhiên
+            const randomX = Math.random() * (windowWidth - 100); 
+            const randomY = Math.random() * (windowHeight - 100);
+
+            // Gán vị trí mới cho nút No
+            noBtn.style.position = "fixed"; // Đổi sang fixed để chạy khắp màn hình
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+    </script>
+</body>
+</html>
