@@ -7,7 +7,7 @@
     <style>
         /* CSS - Trang trí giao diện */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'LE NGAN', sans-serif;
             background-color: #fce4ec; /* Màu hồng nhạt */
             display: flex;
             justify-content: center;
@@ -128,4 +128,5 @@
         }
     </script>
 </body>
+
 </html>
